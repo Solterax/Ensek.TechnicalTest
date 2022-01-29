@@ -17,44 +17,46 @@ namespace Ensek.TechnicalTest.Domain
 
         public List<MeterReading> Validate(IEnumerable<MeterReadingStrings> meterReadingStrings, out int successCount, out int failCount)
         {
-            var meterReadings = ConvertMeterReadingStrings(meterReadingStrings);
+            var meterReadings = ConvertMeterReadingStrings(meterReadingStrings, out int typeFailCount);
 
-            var validMeterReadings = SanitiseMeterReadings(meterReadings, out successCount, out failCount);
+            var validMeterReadings = SanitiseMeterReadings(meterReadings, out int valueFailCount);
+            
+            failCount = typeFailCount + valueFailCount;
+            successCount = meterReadingStrings.Count() - failCount;
 
             return validMeterReadings;
         }
 
-        private List<MeterReading> SanitiseMeterReadings(List<MeterReading> meterReadings, out int successCount, out int failCount)
+        private List<MeterReading> SanitiseMeterReadings(List<MeterReading> meterReadings, out int valueFailCount)
         {
             var existingAccounts = _accountDatabaseService.GetAccountsThatExistAsync(
                 meterReadings.Select(x => x.AccountId)).Result;
 
-            failCount = 0;
-            successCount = 0;
             var validMeterReadings = new List<MeterReading>();
+
+            valueFailCount = 0;
 
             foreach (var meterReading in meterReadings)
             {
 
                 if (MeterReadingAlreadyExists(meterReading).Result)
                 {
-                    failCount++;
+                    valueFailCount++;
                     continue;
                 }
 
                 if (AccountDoesNotExist(meterReading, existingAccounts))
                 {
-                    failCount++;
+                    valueFailCount++;
                     continue;
                 }
 
                 if (ReadingLargerThanMaxPossibleReading(meterReading))
                 {
-                    failCount++;
+                    valueFailCount++;
                     continue;
                 }
 
-                successCount++;
                 validMeterReadings.Add(meterReading);
             }
 
@@ -76,8 +78,10 @@ namespace Ensek.TechnicalTest.Domain
             return await _meterReadingDatabaseService.MeterReadingAlreadyExists(meterReading);
         }
 
-        private List<MeterReading> ConvertMeterReadingStrings(IEnumerable<MeterReadingStrings> meterReadingStrings)
+        private List<MeterReading> ConvertMeterReadingStrings(IEnumerable<MeterReadingStrings> meterReadingStrings, out int typeFailCount)
         {
+            typeFailCount = 0;
+
             var meterReadings = new List<MeterReading>();
 
             foreach (var meterReadingString in meterReadingStrings)
@@ -88,6 +92,10 @@ namespace Ensek.TechnicalTest.Domain
                 {
                     var meterReading = new MeterReading(meterReadingString);
                     meterReadings.Add(meterReading);
+                }
+                else
+                {
+                    typeFailCount++;
                 }
             }
             return meterReadings;
