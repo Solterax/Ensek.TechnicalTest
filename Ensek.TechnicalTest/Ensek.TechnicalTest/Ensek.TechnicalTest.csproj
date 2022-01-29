@@ -10,4 +10,9 @@
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.2.3" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\Ensek.TechnicalTest.Database\Ensek.TechnicalTest.Database.csproj" />
+    <ProjectReference Include="..\Ensek.TechnicalTest.Domain\Ensek.TechnicalTest.Domain.csproj" />
+  </ItemGroup>
+
 </Project>

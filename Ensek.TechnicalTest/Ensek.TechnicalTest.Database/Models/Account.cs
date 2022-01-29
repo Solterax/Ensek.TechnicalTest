@@ -13,5 +13,15 @@ namespace Ensek.TechnicalTest.Database.Models
         public string FirstName { get; set; }
 
         public string LastName { get; set; }
+
+        public Domain.Models.Account GetDomainModel()
+        {
+            return new Domain.Models.Account()
+            {
+                AccountId = AccountId,
+                FirstName = FirstName,
+                LastName = LastName
+            };
+        }
     }
 }

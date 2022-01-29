@@ -3,9 +3,15 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.0.32112.339
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ensek.TechnicalTest", "Ensek.TechnicalTest\Ensek.TechnicalTest.csproj", "{41946243-200D-49A8-A6CA-FC2232AD9F2E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Ensek.TechnicalTest", "Ensek.TechnicalTest\Ensek.TechnicalTest.csproj", "{41946243-200D-49A8-A6CA-FC2232AD9F2E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ensek.TechnicalTest.Database", "Ensek.TechnicalTest.Database\Ensek.TechnicalTest.Database.csproj", "{B4123F2E-CA20-4453-8CAC-7E5AC13B7144}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Ensek.TechnicalTest.Database", "Ensek.TechnicalTest.Database\Ensek.TechnicalTest.Database.csproj", "{B4123F2E-CA20-4453-8CAC-7E5AC13B7144}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ensek.TechnicalTest.Domain", "Ensek.TechnicalTest.Domain\Ensek.TechnicalTest.Domain.csproj", "{4D399C52-02BD-4C0A-9991-2A78DBA4FAC9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ensek.TechnicalTest.Database.Tests", "Ensek.TechnicalTest.Database.Tests\Ensek.TechnicalTest.Database.Tests.csproj", "{065CB019-26FD-4AC6-AB9B-0ABB7322B830}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ensek.TechnicalTest.Domain.Tests", "Ensek.TechnicalTest.Domain.Tests\Ensek.TechnicalTest.Domain.Tests.csproj", "{5E9C5716-0959-4B84-9C4A-48768B9CC220}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +27,18 @@ Global
 		{B4123F2E-CA20-4453-8CAC-7E5AC13B7144}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B4123F2E-CA20-4453-8CAC-7E5AC13B7144}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B4123F2E-CA20-4453-8CAC-7E5AC13B7144}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4D399C52-02BD-4C0A-9991-2A78DBA4FAC9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4D399C52-02BD-4C0A-9991-2A78DBA4FAC9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4D399C52-02BD-4C0A-9991-2A78DBA4FAC9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4D399C52-02BD-4C0A-9991-2A78DBA4FAC9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{065CB019-26FD-4AC6-AB9B-0ABB7322B830}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{065CB019-26FD-4AC6-AB9B-0ABB7322B830}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{065CB019-26FD-4AC6-AB9B-0ABB7322B830}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{065CB019-26FD-4AC6-AB9B-0ABB7322B830}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5E9C5716-0959-4B84-9C4A-48768B9CC220}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5E9C5716-0959-4B84-9C4A-48768B9CC220}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5E9C5716-0959-4B84-9C4A-48768B9CC220}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5E9C5716-0959-4B84-9C4A-48768B9CC220}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
